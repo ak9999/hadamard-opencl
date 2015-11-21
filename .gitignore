@@ -1,0 +1,9 @@
+# Executables
+*.out
+HelloWorld
+
+# Object files
+*.o
+
+# Text files
+*.txt
