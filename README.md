@@ -1,4 +1,4 @@
-# Vector Multiplication
+# Vector Multiplication Demo with OpenCL
 
 This program creates two arrays of equal sizes and performs a bitwise OR operation on both to assign values to a new array 'result'.
 
