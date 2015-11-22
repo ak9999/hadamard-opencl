@@ -10,7 +10,7 @@ Run `make`
 
 Works in UNIX-like environments as long as OpenCL libraries are available.
 
-Those on Windows check this [StackOverflow post](https://stackoverflow.com/questions/23173374/configure-opencl-under-cygwin) to see how to compile this with MinGW.
+Those on Windows should read this [StackOverflow post](https://stackoverflow.com/questions/23173374/configure-opencl-under-cygwin) to see how to compile this with MinGW.
 
 # To do:
 
