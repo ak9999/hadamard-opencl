@@ -8,6 +8,13 @@ C++FLAGS=-Wall -std=c++11 -pedantic
 #CC=nvcc
 #C++FLAGS= -V --verbose -std=c++11 -lOpenCL
 
+# Define RM depending on platform.
+ifdef COMSPEC
+	RM ?= del
+else
+	RM ?= rm -f
+endif
+
 #Math Library
 MATH_LIBS = -lm
 EXEC_DIR=.
@@ -24,6 +31,6 @@ all:
 		$(OPENCL_LIBS)
 
 clean:
-	(rm -f *.o;)
-	(rm -f *.out;)
-	rm -f HelloWorld
+	($(RM) *.o;)
+	($(RM) *.out;)
+	$(RM) HelloWorld
