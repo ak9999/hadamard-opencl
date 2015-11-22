@@ -5,5 +5,5 @@ HelloWorld
 # Object files
 *.o
 
-# Text files
-*.txt
+# IDE folders
+.idea
