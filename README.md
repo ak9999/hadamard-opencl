@@ -7,3 +7,8 @@ The contents of all 3 arrays are printed to the terminal.
 # Building
 
 The accompanying Makefile targets 64-bit Linux distributions with the CUDA Toolkit installed.
+
+# To do:
+
+Actually implement the vector multiplication.
+
