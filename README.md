@@ -6,7 +6,8 @@ The contents of all 3 arrays are printed to the terminal.
 
 # Building
 
-`make`
+Run `make`
+
 The Makefile should work in any UNIX-like environment as long as the OpenCL library is available.
 
 # To do:
