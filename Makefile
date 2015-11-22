@@ -2,6 +2,8 @@
 CC=g++
 C++FLAGS=-Wall -std=c++11 -pedantic
 
+# It is important that "-l OpenCL" is the final argument when calling g++.
+
 # Compiler flags differ depending on platform.
 # Need to check whether we're on Linux or Mac.
 UNAME_S := $(shell uname -s)
@@ -11,12 +13,6 @@ endif
 ifeq ($(UNAME_S),Darwin)
 	C++FLAGS += -framework OpenCL
 endif
-
-# It is important that "-l OpenCL" is the final argument when calling g++.
-
-#Compiler and compiler flags for NVIDIA CUDA Compiler
-#CC=nvcc
-#C++FLAGS= -V --verbose -std=c++11 -lOpenCL
 
 # Define RM depending on platform.
 # On Windows, cmd.exe is the available shell, which uses `del` instead of `rm` to delete files.
