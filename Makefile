@@ -19,6 +19,8 @@ endif
 #C++FLAGS= -V --verbose -std=c++11 -lOpenCL
 
 # Define RM depending on platform.
+# On Windows, cmd.exe is the available shell, which uses `del` instead of `rm` to delete files.
+# If COMSPEC is defined, then we know we're on Windows.
 ifdef COMSPEC
 	RM ?= del
 else
@@ -32,9 +34,12 @@ EXEC_DIR=.
 # CUDA Libraries
 CUDA_LIBS64=/usr/local/cuda/lib64
 
+# AMD APP SDK libraries
+AMDAPPSDK=AMDAPPSDKROOT/lib
+
 #Including
 INCLUDES= -I. -I /usr/local/cuda/include
-LIBS_ALL= -L/usr/lib -L/usr/local/lib -L $(MATH_LIBS) -L $(CUDA_LIBS64)
+LIBS_ALL= -L/usr/lib -L/usr/local/lib -L $(MATH_LIBS) -L $(CUDA_LIBS64) -L $(AMDAPPSDK)
 
 all:
 	$(CC) HelloWorld.cpp -o HelloWorld \
@@ -44,3 +49,4 @@ clean:
 	($(RM) *.o;)
 	($(RM) *.out;)
 	$(RM) HelloWorld
+
