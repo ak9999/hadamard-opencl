@@ -9,7 +9,7 @@ The contents of all 3 arrays are printed to the terminal.
 Run `make`
 
 Works on Mac and Linux.
-Those on Windows should read this [StackOverflow post](https://stackoverflow.com/questions/23173374/configure-opencl-under-cygwin) to see how to compile this with MinGW.
+Those on Windows should read this [StackOverflow post](https://stackoverflow.com/questions/23173374/configure-opencl-under-cygwin) to set up MinGW with OpenCL libraries.
 
 # To do:
 
