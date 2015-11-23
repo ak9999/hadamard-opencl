@@ -1,9 +1,13 @@
 # Executables
 *.out
 HelloWorld
+create_arrays
 
 # Object files
 *.o
 
 # IDE folders
 .idea
+
+# Text files
+*.txt
