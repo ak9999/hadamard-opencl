@@ -38,10 +38,20 @@ INCLUDES= -I. -I /usr/local/cuda/include
 LIBS_ALL= -L/usr/lib -L/usr/local/lib -L $(MATH_LIBS) -L $(CUDA_LIBS64) -L $(AMDAPPSDK)
 
 all:
+	make HelloWorld
+	make text_files
+
+HelloWorld:
 	$(CC) HelloWorld.cpp -o HelloWorld \
+		$(C++FLAGS)
+
+text_files:
+	$(CC) create_arrays.cpp -o create_arrays \
 		$(C++FLAGS)
 
 clean:
 	($(RM) *.o;)
 	($(RM) *.out;)
+	($(RM) *.txt;)
 	$(RM) HelloWorld
+	$(RM) create_arrays
