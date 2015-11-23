@@ -10,7 +10,7 @@
 #include <CL/opencl.h>
 #endif
 
-#define ARRAY_SIZE 10
+#define ARRAY_SIZE 1000
 
 cl_context CreateContext();
 cl_command_queue CreateCommandQueue(cl_context, cl_device_id *);
