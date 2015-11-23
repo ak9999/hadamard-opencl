@@ -148,11 +148,19 @@ int main(int argc, char * argv[])
 	}
 
 	// Output the result buffer
-	for(int i = 0; i < ARRAY_SIZE; i++)
+	// To a file.
+	ofstream result_array;
+
+	result_array.open("results.txt");
+
+	if(result_array.good())
 	{
-		//cout << result[i] << " ";
-		// Print out array c.
-		cout << c[i] << " ";
+		for(int i = 0; i < ARRAY_SIZE; i++)
+		{
+			result_array << c[i] << endl;
+		}
+
+		cout << "Results saved to results.txt." << endl;
 	}
 
 	cout << endl;
