@@ -64,7 +64,6 @@ int main(int argc, char * argv[])
 	float result[ARRAY_SIZE];
 	float a[ARRAY_SIZE];
 	float b[ARRAY_SIZE];
-	float c[ARRAY_SIZE]; // Our new result array for matrix multiplication.
 
 	// Open two files a.txt and b.txt because they contain the arrays.
 
@@ -104,7 +103,6 @@ int main(int argc, char * argv[])
 			//b[i] = (float)(2*i);
 			cout << "b[" << i << "] = " << b[i] << endl;
 
-			c[i] = (float)(a[i] * b[i]);
 		}
 	}
 
@@ -157,7 +155,7 @@ int main(int argc, char * argv[])
 	{
 		for(int i = 0; i < ARRAY_SIZE; i++)
 		{
-			result_array << c[i] << endl;
+			result_array << result[i] << endl;
 		}
 
 		cout << "Results saved to results.txt." << endl;
