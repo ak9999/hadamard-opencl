@@ -2,6 +2,7 @@
 // Hello World Implementation
 
 #include <iostream>
+#include <cstdlib>
 
 #ifdef __APPLE__
 #include <OpenCL/opencl.h>
@@ -65,15 +66,46 @@ int main(int argc, char * argv[])
 	float b[ARRAY_SIZE];
 	float c[ARRAY_SIZE]; // Our new result array for matrix multiplication.
 
-	for(int i = 0; i < ARRAY_SIZE; i++)
+	// Open two files a.txt and b.txt because they contain the arrays.
+
+	ifstream a_array;
+	ifstream b_array;
+
+	// Open files for reading.
+	a_array.open("a.txt");
+	b_array.open("b.txt");
+
+	if(a_array.good() && b_array.good())
 	{
-		a[i] = (float)i;
-		cout << "a[" << i << "] = " << a[i] << endl;
+		cout << "Reading arrays from files." << endl;
 
-		b[i] = (float)(2*i);
-		cout << "b[" << i << "] = " << b[i] << endl;
+		string line_a;
+		string line_b;
 
-		c[i] = (float)(a[i] * b[i]);
+		int start_a = 0;
+		while(getline(a_array, line_a))
+		{
+			a[start_a] = atof(line_a.c_str());
+			start_a++;
+		}
+
+		int start_b = 0;
+		while(getline(b_array, line_b))
+		{
+			b[start_b] = atof(line_b.c_str());
+			start_b++;
+		}
+
+		for(int i = 0; i < ARRAY_SIZE; i++)
+		{
+			//a[i] = (float)i;
+			cout << "a[" << i << "] = " << a[i] << endl;
+
+			//b[i] = (float)(2*i);
+			cout << "b[" << i << "] = " << b[i] << endl;
+
+			c[i] = (float)(a[i] * b[i]);
+		}
 	}
 
 	if(CreateMemObjects(context, memObjects, a, b) == false)
