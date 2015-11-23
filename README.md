@@ -11,7 +11,3 @@ Run `make`
 Works on Mac and Linux.
 Those on Windows should read this [StackOverflow post](https://stackoverflow.com/questions/23173374/configure-opencl-under-cygwin) to set up MinGW with OpenCL libraries.
 
-# To do:
-
-Actually implement the vector multiplication.
-

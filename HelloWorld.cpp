@@ -63,6 +63,8 @@ int main(int argc, char * argv[])
 	float result[ARRAY_SIZE];
 	float a[ARRAY_SIZE];
 	float b[ARRAY_SIZE];
+	float c[ARRAY_SIZE]; // Our new result array for matrix multiplication.
+
 	for(int i = 0; i < ARRAY_SIZE; i++)
 	{
 		a[i] = (float)i;
@@ -70,6 +72,8 @@ int main(int argc, char * argv[])
 
 		b[i] = (float)(2*i);
 		cout << "b[" << i << "] = " << b[i] << endl;
+
+		c[i] = (float)(a[i] * b[i]);
 	}
 
 	if(CreateMemObjects(context, memObjects, a, b) == false)
@@ -114,7 +118,9 @@ int main(int argc, char * argv[])
 	// Output the result buffer
 	for(int i = 0; i < ARRAY_SIZE; i++)
 	{
-		cout << result[i] << " ";
+		//cout << result[i] << " ";
+		// Print out array c.
+		cout << c[i] << " ";
 	}
 
 	cout << endl;
