@@ -11,6 +11,6 @@ Run `make`
 Works on Mac and Linux.
 Those on Windows should read this [StackOverflow post](https://stackoverflow.com/questions/23173374/configure-opencl-under-cygwin) to set up MinGW with OpenCL libraries.
 
-# To do:
+# Running
 
-Read vectors from a file.
+First run create_arrays to create the files holding the numbers, then run HelloWorld to see it work.
