@@ -13,4 +13,6 @@ Those on Windows should read this [StackOverflow post](https://stackoverflow.com
 
 # Running
 
-First run create_arrays to create the files holding the numbers, then run HelloWorld to see it work.
+First run create_arrays to create the files holding the numbers, then run HelloWorld.
+
+Check results.txt to see what happened.
