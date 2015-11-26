@@ -10,6 +10,8 @@
 #include <CL/opencl.h>
 #endif
 
+#include <chrono> // To time how long our program takes to run.
+
 #define ARRAY_SIZE 1000
 
 cl_context CreateContext();
@@ -20,6 +22,9 @@ bool CreateMemObjects(cl_context, cl_mem memObjects[3], float *, float *);
 void Cleanup(cl_context context, cl_command_queue commandQueue,
 	           cl_program program, cl_kernel kernel,
 						 cl_mem memObjects[3]);
+
+// Returns program duration.
+void timer(std::chrono::steady_clock::time_point start, std::chrono::steady_clock::time_point end);
 
 #include "functions.cpp"
 #endif /* defined(__HelloWorld__functions__) */

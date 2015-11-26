@@ -165,3 +165,13 @@ void Cleanup(cl_context context, cl_command_queue commandQueue,
 	if (context!=0)
 		clReleaseContext(context);
 }
+
+/*
+*	
+*/
+void timer(std::chrono::steady_clock::time_point start, std::chrono::steady_clock::time_point end)
+{
+	std::cout << "Finished in " 
+	<< std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()
+	<< "μs" << endl;
+}

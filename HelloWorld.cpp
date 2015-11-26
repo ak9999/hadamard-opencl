@@ -16,6 +16,11 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
+
+	// Start timing.
+
+	std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+
 	cl_context context = 0;
 	cl_command_queue commandQueue = 0;
 	cl_program program = 0;
@@ -30,6 +35,9 @@ int main(int argc, char * argv[])
 	if(context == NULL)
 	{
 		cerr << "Failed to create OpenCL context." << endl;
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -38,6 +46,9 @@ int main(int argc, char * argv[])
 	if(commandQueue == NULL)
 	{
 		Cleanup(context, commandQueue, program, kernel, memObjects);
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -46,6 +57,9 @@ int main(int argc, char * argv[])
 	if(program == NULL)
 	{
 		Cleanup(context, commandQueue, program, kernel, memObjects);
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -55,6 +69,9 @@ int main(int argc, char * argv[])
 	{
 		cerr << "Failed to create kernel." << endl;
 		Cleanup(context, commandQueue, program, kernel, memObjects);
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -109,6 +126,8 @@ int main(int argc, char * argv[])
 	if(CreateMemObjects(context, memObjects, a, b) == false)
 	{
 		Cleanup(context, commandQueue, program, kernel, memObjects);
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -120,6 +139,9 @@ int main(int argc, char * argv[])
 	{
 		cerr << "Error setting kernel arguments." << endl;
 		Cleanup(context, commandQueue, program, kernel, memObjects);
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -132,6 +154,9 @@ int main(int argc, char * argv[])
 	{
 		cerr << "Error." << endl;
 		Cleanup(context, commandQueue, program, kernel, memObjects);
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -142,6 +167,9 @@ int main(int argc, char * argv[])
 	{
 		cerr << "Error reading result buffer." << endl;
 		Cleanup(context, commandQueue, program, kernel, memObjects);
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		timer(start, end);
 		return 1;
 	}
 
@@ -164,5 +192,8 @@ int main(int argc, char * argv[])
 	cout << endl;
 	cout << "Executed program successfully." << endl;
 	Cleanup(context, commandQueue, program, kernel, memObjects);
+
+	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+	timer(start, end);
 	return 0;
 }
