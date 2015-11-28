@@ -1,6 +1,6 @@
 # Vector Multiplication Demo with OpenCL
 
-This program creates two arrays of equal sizes and performs a bitwise OR operation on both to assign values to a new array 'result'.
+This program takes advantage of the GPU by using a OpenCL kernel to perform the multiplication.
 
 The contents of all 3 arrays are printed to the terminal.
 
