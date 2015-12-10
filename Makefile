@@ -27,15 +27,9 @@ endif
 MATH_LIBS = -lm
 EXEC_DIR=.
 
-# CUDA Libraries
-CUDA_LIBS64=/usr/local/cuda/lib64
-
-# AMD APP SDK libraries
-AMDAPPSDK=AMDAPPSDKROOT/lib
-
 #Including
 INCLUDES= -I. -I /usr/local/cuda/include
-LIBS_ALL= -L/usr/lib -L/usr/local/lib -L $(MATH_LIBS) -L $(CUDA_LIBS64) -L $(AMDAPPSDK)
+LIBS_ALL= -L/usr/lib -L/usr/local/lib -L $(MATH_LIBS)
 
 all:
 	make HelloWorld
