@@ -1,4 +1,4 @@
-# Vector Multiplication Demo with OpenCL
+# Hadamard Product Demo with OpenCL
 
 This program takes advantage of the GPU by using a OpenCL kernel to perform the multiplication.
 
