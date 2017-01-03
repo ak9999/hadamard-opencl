@@ -9,7 +9,6 @@
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-using namespace std;
 cl_context CreateContext()
 {
 	cl_int errNum;
@@ -21,7 +20,7 @@ cl_context CreateContext()
 	errNum = clGetPlatformIDs(1, &firstPlatformID, &numPlatforms);
 	if (errNum != CL_SUCCESS || numPlatforms <= 0)
 	{
-		cerr << "Failed to find any OpenCL platforms." << endl;
+		cerr << "Failed to find any OpenCL platforms.\n";
 		return NULL;
 	}
 
@@ -37,12 +36,12 @@ cl_context CreateContext()
 		CL_DEVICE_TYPE_GPU, NULL, NULL, &errNum);
 	if (errNum != CL_SUCCESS)
 	{
-		cerr << "Failed to create an OpenCL GPU context, trying CPU." << endl;
+		cerr << "Failed to create an OpenCL GPU context, trying CPU.\n";
 		context = clCreateContextFromType(contextProperties,
 			CL_DEVICE_TYPE_CPU, NULL, NULL, &errNum);
 		if (errNum != CL_SUCCESS)
 		{
-			cerr<<"Failed to create an OpenCL GPU or CPU context."<<endl;
+			cerr<<"Failed to create an OpenCL GPU or CPU context.\n";
 			return NULL;
 		}
 	}
@@ -56,7 +55,7 @@ cl_command_queue CreateCommandQueue(cl_context context,
 	cl_device_id *devices;
 	cl_command_queue commandQueue = NULL;
 	size_t deviceBufferSize = -1;
-	
+
 	//Get the size of the devices buffer
 	errNum = clGetContextInfo(context, CL_CONTEXT_DEVICES, 0,
 		NULL, &deviceBufferSize);
@@ -67,7 +66,7 @@ cl_command_queue CreateCommandQueue(cl_context context,
 	}
 	if (deviceBufferSize <= 0)
 	{
-		cerr << "No devices available." << endl;
+		cerr << "No devices available.\n";
 		return NULL;
 	}
 
@@ -102,7 +101,7 @@ cl_program CreateProgram(cl_context context, cl_device_id
 	ifstream kernelFile(fileName, ios::in);
 	if (!kernelFile.is_open())
 	{
-		cerr << "Failed to open file for reading: " << fileName << endl;
+		cerr << "Failed to open file for reading: " << fileName << '\n';
 		return NULL;
 	}
 	ostringstream oss;
@@ -113,7 +112,7 @@ cl_program CreateProgram(cl_context context, cl_device_id
 		**)&srcStr, NULL, NULL);
 	if (program == NULL)
 	{
-		cerr << "Failed to create CL program from source." << endl;
+		cerr << "Failed to create CL program from source.\n";
 		return NULL;
 	}
 	errNum = clBuildProgram(program, 0, NULL, NULL, NULL, NULL);
@@ -123,7 +122,7 @@ cl_program CreateProgram(cl_context context, cl_device_id
 		char buildLog[16384];
 		clGetProgramBuildInfo(program, device,
 			CL_PROGRAM_BUILD_LOG, sizeof(buildLog), buildLog, NULL);
-		cerr << "Error in kernel: " << endl;
+		cerr << "Error in kernel:\n";
 		cerr << buildLog;
 		clReleaseProgram(program);
 		return NULL;
@@ -142,7 +141,7 @@ bool CreateMemObjects(cl_context context, cl_mem memObjects[3],
 	if (memObjects[0] == NULL || memObjects[1] == NULL ||
 		memObjects[2] == NULL)
 	{
-		cerr << "Error creating memory objects." << endl;
+		cerr << "Error creating memory objects.\n";
 		return false;
 	}
 	return true;
@@ -166,12 +165,9 @@ void Cleanup(cl_context context, cl_command_queue commandQueue,
 		clReleaseContext(context);
 }
 
-/*
-*	
-*/
 void timer(std::chrono::steady_clock::time_point start, std::chrono::steady_clock::time_point end)
 {
-	std::cout << "Finished in " 
+	std::cout << "Finished in "
 	<< std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()
-	<< "μs" << endl;
+	<< "μs\n";
 }
