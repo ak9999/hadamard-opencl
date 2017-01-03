@@ -9,6 +9,8 @@
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+using namespace std;
+
 cl_context CreateContext()
 {
 	cl_int errNum;
