@@ -4,34 +4,25 @@
 
 using namespace std;
 
-int main(int argc, char * argv[])
+int main()
 {
-
-	/**
-	* Create the files where we will store our arrays.
-	*/
+	// Create the files where we will store our arrays.
 	ofstream a;
 	ofstream b;
-
-	// Open files in append mode.
+	// Open files.
 	a.open("a.txt");
 	b.open("b.txt");
-
 	if(a.good() && b.good())
 	{
-		cout << "Opening files..." << endl;
-		
-		for(int i = 0; i < ARRAY_SIZE; i++)
+		cout << "Writing to files...\n";
+		for(unsigned int i = 0; i < ARRAY_SIZE; ++i)
 		{
-			a << i << endl;
-			b << 2*i << endl;
+			a << i << '\n';
+			b << 2*i << '\n';
 		}
 	}
-
 	a.close();
 	b.close();
-
 	cout << "Done!" << endl;
-	
 	return 0;
 }
