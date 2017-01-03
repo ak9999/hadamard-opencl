@@ -1,6 +1,6 @@
 #Compiler and compiler flags for standard g++
 CC=g++
-C++FLAGS=-Wall -std=c++11 -pedantic
+C++FLAGS=-Wall -std=c++14 -pedantic
 
 # It is important that "-l OpenCL" is the final argument when calling g++.
 
