@@ -16,3 +16,7 @@ Those on Windows should read this [StackOverflow post](https://stackoverflow.com
 First run create_arrays to create the files holding the numbers, then run HelloWorld.
 
 Check results.txt to see what happened.
+
+# Update:
+
+I wanted to see if I could pass `std::array`s to the GPU instead of C-style arrays. Turns out we can.
